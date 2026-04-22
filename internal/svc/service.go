@@ -71,6 +71,7 @@ func build(cfg Config, runner Runner) (service.Service, error) {
 		Name:        cfg.Name,
 		DisplayName: cfg.DisplayName,
 		Description: cfg.Description,
+		Arguments:   []string{"-service", "run"},
 	}
 	return service.New(p, sc)
 }
