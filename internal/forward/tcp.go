@@ -57,7 +57,7 @@ func newTCPForwarder(rule *models.ForwardRule, dialTimeoutSec, bufferSize int) *
 
 func (f *TCPForwarder) Start() error {
 	listenAddr := fmt.Sprintf("%s:%d", f.rule.ListenAddr, f.rule.ListenPort)
-	ln, err := net.Listen("tcp", listenAddr)
+	ln, err := net.Listen("tcp4", listenAddr)
 	if err != nil {
 		return fmt.Errorf("TCP 监听失败 | TCP listen failed %s: %w", listenAddr, err)
 	}
